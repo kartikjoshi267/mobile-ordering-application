@@ -11,7 +11,7 @@ const SellerDashboard = () => {
     useEffect(() => {
         const fetchMobiles = async () => {
             try {
-                const response = await axios.get(import.meta.env.VITE_BACKEND_URI+'/server/api/mobiles/seller', {
+                const response = await axios.get(import.meta.env.VITE_BACKEND_URI+'/api/mobiles/seller', {
                     headers: {
                         Authorization: 'Bearer ' + getCookie('accessToken')
                     }
@@ -28,7 +28,7 @@ const SellerDashboard = () => {
 
     const handleAddMobile = async (newMobile) => {
         try {
-            const response = await axios.post(import.meta.env.VITE_BACKEND_URI+'/server/api/mobiles/', newMobile, {
+            const response = await axios.post(import.meta.env.VITE_BACKEND_URI+'/api/mobiles/', newMobile, {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: 'Bearer ' + getCookie('accessToken')

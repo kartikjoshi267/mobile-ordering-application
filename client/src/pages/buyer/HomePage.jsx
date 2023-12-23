@@ -11,7 +11,7 @@ const HomePage = () => {
 
     useEffect(() => {
         const initialProducts = async () => {
-            const { data } = await axios.get(import.meta.env.VITE_BACKEND_URI+'/server/api/mobiles?', {
+            const { data } = await axios.get(import.meta.env.VITE_BACKEND_URI+'/api/mobiles?', {
                 headers: {
                     Authorization: 'Bearer ' + getCookie('accessToken')
                 }
