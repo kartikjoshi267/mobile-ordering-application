@@ -10,6 +10,8 @@ You can do the following tasks in this application:
 
 [Live Demo](https://mobile-ordering-application.vercel.app)
 
+[Screen recording of the app](https://app.screencast.com/1iE2HnOK1ES9V)
+
 (Backend is hosted on a free web service so it may take few seconds to respond)
 
 ## How to run the project locally
