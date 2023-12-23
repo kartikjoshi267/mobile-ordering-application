@@ -9,21 +9,25 @@ import {getCookie} from "../../lib/utils.js";
 const HomePage = () => {
     const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        const initialProducts = async () => {
-            const { data } = await axios.get(import.meta.env.VITE_BACKEND_URI+'/api/mobiles?', {
-                headers: {
-                    Authorization: 'Bearer ' + getCookie('accessToken')
-                }
-            });
-            setProducts(data);
-        }
+    const initialProducts = async () => {
+        const { data } = await axios.get(import.meta.env.VITE_BACKEND_URI+'/api/mobiles?', {
+            headers: {
+                Authorization: 'Bearer ' + getCookie('accessToken')
+            }
+        });
+        setProducts(data);
+    }
 
+    useEffect(() => {
         initialProducts();
     }, []);
 
     const handleSearch = (searchTerm, selectedProperty) => {
         let filteredProducts;
+
+        if (!searchTerm){
+            initialProducts();
+        }
 
         if (selectedProperty === 'all') {
             filteredProducts = products.filter((product) =>
