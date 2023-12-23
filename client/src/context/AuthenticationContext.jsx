@@ -22,7 +22,7 @@ export const AuthenticationContextProvider = ({children}) => {
     const getUser = async () => {
         try {
             const accessToken = getCookie('accessToken');
-            const {data} = await axios.post('/server/api/users', {}, {
+            const {data} = await axios.post(import.meta.env.VITE_BACKEND_URI+'/server/api/users', {}, {
                 headers: {
                     Authorization: 'Bearer ' + accessToken
                 }
@@ -36,7 +36,7 @@ export const AuthenticationContextProvider = ({children}) => {
 
     const signupHandler = async (credentials) => {
         try {
-            const {data} = await axios.post('/server/api/users/register', JSON.stringify(credentials), {
+            const {data} = await axios.post(import.meta.env.VITE_BACKEND_URI+'/server/api/users/register', JSON.stringify(credentials), {
                 headers: {
                     "Content-Type": "application/json"
                 }
@@ -50,7 +50,7 @@ export const AuthenticationContextProvider = ({children}) => {
 
     const loginHandler = async (credentials) => {
         try {
-            const {data} = await axios.post('/server/api/users/login', JSON.stringify(credentials), {
+            const {data} = await axios.post(import.meta.env.VITE_BACKEND_URI+'/server/api/users/login', JSON.stringify(credentials), {
                 headers: {
                     "Content-Type": "application/json"
                 }

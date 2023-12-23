@@ -18,7 +18,7 @@ export const CartContextProvider = ({children}) => {
     // Function to add an item to the cart
     const onAddToCart = async (product) => {
         try {
-            const { data } = await axios.post('/server/api/mobiles/cart', JSON.stringify({ _id: product._id }), {
+            const { data } = await axios.post(import.meta.env.VITE_BACKEND_URI+'/server/api/mobiles/cart', JSON.stringify({ _id: product._id }), {
                 headers: {
                     Authorization: 'Bearer ' + getCookie('accessToken'),
                     "Content-Type": 'application/json'
@@ -34,7 +34,7 @@ export const CartContextProvider = ({children}) => {
     // Function to remove an item from the cart
     const onRemoveItem = async (productId) => {
         try {
-            const { data } = await axios.delete(`/server/api/mobiles/cart?productId=${productId}`, {
+            const { data } = await axios.delete(import.meta.env.VITE_BACKEND_URI+`/server/api/mobiles/cart?productId=${productId}`, {
                 headers: {
                     Authorization: 'Bearer ' + getCookie('accessToken'),
                     "Content-Type": 'application/json'
